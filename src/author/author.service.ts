@@ -3,7 +3,7 @@ import { db } from "../utils/db.server";
 type Author = {
     id: number,
     nome: string,
-    sobrenome: string
+    sobrenome: string,
 }
 
 export const listAuthors = async (): Promise<Author[]> => {
@@ -11,7 +11,15 @@ export const listAuthors = async (): Promise<Author[]> => {
         select: {
             id: true,
             nome: true,
-            sobrenome: true
+            sobrenome: true,
+        }
+    })
+}
+
+export const getAuthor = async (id: number): Promise<Author | null> => {
+    return db.author.findUnique({
+        where: {
+            id: id,
         }
     })
 }
