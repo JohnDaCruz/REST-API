@@ -23,3 +23,36 @@ export const getAuthor = async (id: number): Promise<Author | null> => {
         }
     })
 }
+
+export const novoAutor = async (author: Omit<Author, "id">): Promise<Author> => {
+    const { nome, sobrenome } = author
+    return db.author.create({
+        data: {
+            nome,
+            sobrenome
+        },
+        select: {
+            id: true,
+            nome: true,
+            sobrenome: true
+        }
+    })
+}
+
+export const atualizarAutor = async (author: Omit<Author, "id">, id: number): Promise<Author> => {
+    const { nome, sobrenome } = author;
+    return db.author.update({
+        where: { id },
+        data: {
+            nome: nome,
+            sobrenome: sobrenome
+        },
+        select: { id: true, nome: true, sobrenome: true },
+    })
+}
+
+export const deletarAutor = async (id: number): Promise<void> => {
+    await db.author.delete({
+        where: { id: id }
+    })
+}
