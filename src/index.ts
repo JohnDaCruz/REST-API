@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv"
-import express from "express"
+import express, { Express } from "express"
 import cors from "cors"
 import { authorRouter } from "./author/author.router";
 
