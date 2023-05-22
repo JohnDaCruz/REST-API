@@ -2,6 +2,7 @@ import * as dotenv from "dotenv"
 import express, { Express } from "express"
 import cors from "cors"
 import { authorRouter } from "./author/author.router";
+import { bookRouter } from "./book/book.router";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/autores", authorRouter)
+app.use("/api/books", bookRouter)
+
 
 
 app.listen(PORT, () => {
