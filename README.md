@@ -1,2 +1,2 @@
 # REST API
-Uma simples API para o gerencimento de livros e seus respectivos autores
+Uma simples API para o gerencimento de livros.
